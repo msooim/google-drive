@@ -27,6 +27,7 @@
                 { text: "isUploaded", value: "isUploaded" },
                 { text: "isIndexed", value: "isIndexed" },
                 { text: "videoUrl", value: "videoUrl" },
+                { text: "test", value: "test" },
             ],
             dashboard : [],
         }),

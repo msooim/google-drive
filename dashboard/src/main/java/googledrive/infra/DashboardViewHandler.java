@@ -61,20 +61,20 @@ public class DashboardViewHandler {
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenFileUploaded_then_UPDATE_2(
-        @Payload FileUploaded fileUploaded
+    public void whenVideoProcessed_then_UPDATE_2(
+        @Payload VideoProcessed videoProcessed
     ) {
         try {
-            if (!fileUploaded.validate()) return;
+            if (!videoProcessed.validate()) return;
             // view 객체 조회
             Optional<Dashboard> dashboardOptional = dashboardRepository.findById(
-                fileUploaded.getFileId()
+                videoProcessed.getFileId()
             );
 
             if (dashboardOptional.isPresent()) {
                 Dashboard dashboard = dashboardOptional.get();
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
-                dashboard.setVideoUrl(fileUploaded.getUrl());
+                dashboard.setVideoUrl(videoProcessed.getUrl());
                 // view 레파지 토리에 save
                 dashboardRepository.save(dashboard);
             }

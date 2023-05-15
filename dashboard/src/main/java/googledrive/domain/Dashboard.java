@@ -19,4 +19,5 @@ public class Dashboard {
     private Boolean isUploaded;
     private Boolean isIndexed;
     private String videoUrl;
+    private String test;
 }
